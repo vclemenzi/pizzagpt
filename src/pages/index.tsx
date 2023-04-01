@@ -66,23 +66,23 @@ const Home: NextPage = () => {
       </Head>
       <main>
         {/* Chat Thread */}
-        <div className="md:h-[93vh] lg:h-[93vh] sm:h-[85vh] h-[85vh] overflow-y-scroll">
+        <div className="md:h-[93vh] lg:h-[93vh] sm:h-[90vh] h-[90vh] overflow-y-scroll">
           {loading ? (
             <>
-              <div className="p-10 flex items-center">
+              <div className="md:p-10 lg:p-10 p-3 flex items-center">
                 <img src="/chatgpt.svg" alt="ChatGPT" className="h-5 w-5 mr-2 animate-spin" />
                 <h1>Wating for the response from OpenAI API...</h1>
               </div>
             </>
           ) : (
-            <div className="p-10">
+            <div className="md:p-10 lg:p-10 p-3">
               <Markdown>{response}</Markdown>
             </div>
           )}
         </div>
 
         {/* Chat Input */}
-        <div className="flex h-20 w-full items-center justify-center p-10">
+        <div className="flex h-20 w-full items-center justify-center md:p-10 lg:p-10 p-3">
           <input
             type="text"
             className="h-10 w-full rounded-lg border border-gray-300 px-4"
@@ -97,13 +97,6 @@ const Home: NextPage = () => {
           >
             Ask
           </button>
-        </div>
-
-        {/* Footer */}
-        <div className="flex justify-center items-center h-20 w-full bg-gray-100">
-          <p className="text-gray-500">
-            Made with ❤️ by{" "} Valerio Clemenzi | PizzaGPT is not affiliated with OpenAI
-          </p>
         </div>
       </main>
     </>
