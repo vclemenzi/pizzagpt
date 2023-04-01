@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 
 export function How() {
   return (
@@ -15,12 +16,12 @@ export function How() {
 
           <p>
             Go to{" "}
-            <a
+            <Link
               href="https://openai.com/"
               className="text-blue-500 hover:text-blue-700"
             >
               OpenAI
-            </a>{" "}
+            </Link>{" "}
             and create an account.
 
             <img src="/create-account.png" alt="Create Account" />
@@ -30,12 +31,12 @@ export function How() {
 
           <p>
             After you have created an account, go to{" "}
-            <a
+            <Link
               href="https://platform.openai.com/account/api-keys"
               className="text-blue-500 hover:text-blue-700"
             >
               API Keys
-            </a>{" "}
+            </Link>{" "}
             and create a new key. And copy it.
             <img src="/create-api-key.png" alt="Create API Key" />
           </p>
@@ -44,9 +45,9 @@ export function How() {
 
           <p>
             After you have created the key, go back to{" "}
-            <a href="/login" className="text-blue-500 hover:text-blue-700">
+            <Link href="/login" className="text-blue-500 hover:text-blue-700">
               Login
-            </a>{" "}
+            </Link>{" "}
             and paste the key in the input.
             <img src="/paste-api-key.png" alt="Paste API Key" />
           </p>
