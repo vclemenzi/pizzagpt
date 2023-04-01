@@ -70,27 +70,6 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        {/* Chat Thread */}
-        <div className="h-[90vh] overflow-y-scroll sm:h-[90vh] md:h-[93vh] lg:h-[93vh]">
-          {loading ? (
-            <>
-              <div className="flex items-center p-3 md:p-10 lg:p-10">
-                <img
-                  src="/chatgpt.svg"
-                  alt="ChatGPT"
-                  className="mr-2 h-5 w-5 animate-spin"
-                />
-                <h1>Wating for the response from OpenAI API...</h1>
-              </div>
-            </>
-          ) : (
-            <div className="p-3 md:p-10 lg:p-10">
-              <Markdown>{response}</Markdown>
-            </div>
-          )}
-        </div>
-
-        {/* Chat Input */}
         <div className="flex h-20 w-full items-center justify-center p-3 md:p-10 lg:p-10">
           <button
             className="mr-4 rounded-md bg-gray-200 p-2 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50"
@@ -124,6 +103,27 @@ const Home: NextPage = () => {
             Ask
           </button>
         </div>
+        {/* Chat Thread */}
+        <div className="h-[90vh] overflow-y-scroll sm:h-[90vh] md:h-[93vh] lg:h-[93vh]">
+          {loading ? (
+            <>
+              <div className="flex items-center p-3 md:p-10 lg:p-10">
+                <img
+                  src="/chatgpt.svg"
+                  alt="ChatGPT"
+                  className="mr-2 h-5 w-5 animate-spin"
+                />
+                <h1>Wating for the response from OpenAI API...</h1>
+              </div>
+            </>
+          ) : (
+            <div className="p-3 md:p-10 lg:p-10">
+              <Markdown>{response}</Markdown>
+            </div>
+          )}
+        </div>
+
+        {/* Chat Input */}
       </main>
     </>
   );
