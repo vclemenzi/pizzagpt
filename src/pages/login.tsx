@@ -23,7 +23,7 @@ function Login() {
       <Head>
         <title>PizzaGPT</title>
       </Head>
-      <div className="-mt-56 flex min-h-screen flex-col items-center justify-center px-14 py-2 text-center">
+      <div className="flex min-h-screen flex-col items-center justify-center px-14 py-2 text-center">
         <div className="rounded-lg bg-white p-10 shadow-xl">
           <h1 className="mb-5 text-2xl">Insert your key</h1>
           <p className="mb-5 text-gray-500">
