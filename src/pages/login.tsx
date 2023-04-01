@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 function Login() {
@@ -26,7 +27,7 @@ function Login() {
         <div className="rounded-lg bg-white p-10 shadow-xl">
           <h1 className="mb-5 text-2xl">Insert your key</h1>
           <p className="mb-5 text-gray-500">
-            Insert your OpenAI API Key to use PizzaGPT (<a href="/how" className="text-blue-500 hover:text-blue-700">how?</a>)
+            Insert your OpenAI API Key to use PizzaGPT (<Link href="/how" className="text-blue-500 hover:text-blue-700">how?</Link>)
           </p>
           <input
             className="w-full rounded border border-gray-300 p-2"
