@@ -54,6 +54,11 @@ const Home: NextPage = () => {
     ask(question);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("key");
+    window.location.href = "/login";
+  };
+
   return (
     <>
       <Head>
@@ -66,23 +71,44 @@ const Home: NextPage = () => {
       </Head>
       <main>
         {/* Chat Thread */}
-        <div className="md:h-[93vh] lg:h-[93vh] sm:h-[90vh] h-[90vh] overflow-y-scroll">
+        <div className="h-[90vh] overflow-y-scroll sm:h-[90vh] md:h-[93vh] lg:h-[93vh]">
           {loading ? (
             <>
-              <div className="md:p-10 lg:p-10 p-3 flex items-center">
-                <img src="/chatgpt.svg" alt="ChatGPT" className="h-5 w-5 mr-2 animate-spin" />
+              <div className="flex items-center p-3 md:p-10 lg:p-10">
+                <img
+                  src="/chatgpt.svg"
+                  alt="ChatGPT"
+                  className="mr-2 h-5 w-5 animate-spin"
+                />
                 <h1>Wating for the response from OpenAI API...</h1>
               </div>
             </>
           ) : (
-            <div className="md:p-10 lg:p-10 p-3">
+            <div className="p-3 md:p-10 lg:p-10">
               <Markdown>{response}</Markdown>
             </div>
           )}
         </div>
 
         {/* Chat Input */}
-        <div className="flex h-20 w-full items-center justify-center md:p-10 lg:p-10 p-3">
+        <div className="flex h-20 w-full items-center justify-center p-3 md:p-10 lg:p-10">
+          <button
+            className="mr-4 rounded-md bg-gray-200 p-2 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50"
+            onClick={handleLogout}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 text-red-700"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+              <path d="M7 12h14l-3 -3m0 6l3 -3" />
+            </svg>
+          </button>
+
           <input
             type="text"
             className="h-10 w-full rounded-lg border border-gray-300 px-4"
