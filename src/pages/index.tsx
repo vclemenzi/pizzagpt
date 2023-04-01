@@ -66,10 +66,11 @@ const Home: NextPage = () => {
       </Head>
       <main>
         {/* Chat Thread */}
-        <div className="h-[93vh] overflow-y-scroll">
+        <div className="md:h-[93vh] lg:h-[93vh] sm:h-[85vh] h-[85vh] overflow-y-scroll">
           {loading ? (
             <>
-              <div className="p-10">
+              <div className="p-10 flex items-center">
+                <img src="/chatgpt.svg" alt="ChatGPT" className="h-5 w-5 mr-2 animate-spin" />
                 <h1>Wating for the response from OpenAI API...</h1>
               </div>
             </>
