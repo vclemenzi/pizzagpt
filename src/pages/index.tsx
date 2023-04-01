@@ -2,11 +2,13 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Markdown } from "~/components/Markdown";
 
 const Home: NextPage = () => {
   const [key, setKey] = useState("");
   const [response, setResponse] = useState("");
   const [question, setQuestion] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const key = localStorage.getItem("key");
@@ -19,6 +21,8 @@ const Home: NextPage = () => {
   }, []);
 
   const ask = (question: string) => {
+    setLoading(true);
+
     axios({
       method: "POST",
       url: "https://api.openai.com/v1/chat/completions",
@@ -39,6 +43,7 @@ const Home: NextPage = () => {
       .then((res) => {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         setResponse(res.data.choices[0].message.content as string);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -62,7 +67,17 @@ const Home: NextPage = () => {
       <main>
         {/* Chat Thread */}
         <div className="h-[93vh] overflow-y-scroll">
-          <p className="p-10 text-black">{response}</p>
+          {loading ? (
+            <>
+              <div className="p-10">
+                <h1>Wating for the response from OpenAI API...</h1>
+              </div>
+            </>
+          ) : (
+            <div className="p-10">
+              <Markdown>{response}</Markdown>
+            </div>
+          )}
         </div>
 
         {/* Chat Input */}

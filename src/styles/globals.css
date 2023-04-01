@@ -1,3 +1,128 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Markdown styles */
+.markdown h1 {
+  @apply mb-2 mt-2 text-3xl;
+}
+
+.markdown h2 {
+  @apply mb-2 mt-2 text-2xl;
+}
+
+.markdown h3 {
+  @apply mb-2 mt-2 text-xl;
+}
+
+.markdown h4 {
+  @apply mb-2 mt-2 text-lg;
+}
+
+.markdown h5 {
+  @apply mb-2 mt-2 text-base;
+}
+
+.markdown h6 {
+  @apply mb-2 mt-2 text-sm;
+}
+
+.markdown p {
+  @apply mb-2 mt-2 text-base;
+}
+
+.markdown ul {
+  @apply mb-2 mt-2 list-disc;
+}
+
+.markdown ol {
+  @apply mb-2 mt-2 list-decimal;
+}
+
+.markdown li {
+  @apply text-base;
+}
+
+.markdown a {
+  @apply text-blue-500;
+}
+
+.markdown a:hover {
+  @apply text-blue-600;
+}
+
+.markdown a:active {
+  @apply text-blue-700;
+}
+
+.markdown a:visited {
+  @apply text-blue-400;
+}
+
+.markdown blockquote {
+  @apply border-l-4 border-gray-200;
+}
+
+.markdown blockquote p {
+  @apply text-sm;
+}
+
+.markdown code {
+  @apply mb-2 mt-2 bg-gray-200 p-1;
+}
+
+.markdown pre {
+  @apply mb-2 mt-2 text-sm;
+}
+
+.markdown table {
+  @apply border-collapse;
+}
+
+.markdown table th {
+  @apply border border-gray-200;
+}
+
+.markdown table td {
+  @apply border border-gray-200;
+}
+
+.markdown table tr:nth-child(odd) {
+  @apply bg-gray-100;
+}
+
+.markdown table tr:nth-child(even) {
+  @apply bg-white;
+}
+
+.markdown table tr:hover {
+  @apply bg-gray-200;
+}
+
+.markdown table tr:hover td {
+  @apply bg-gray-200;
+}
+
+.markdown table tr:hover th {
+  @apply bg-gray-200;
+}
+
+.markdown table tr:hover td:hover {
+  @apply bg-gray-300;
+}
+
+.markdown table tr:hover td:hover a {
+  @apply text-blue-600;
+}
+
+.markdown table tr:hover td:hover a:hover {
+  @apply text-blue-700;
+}
+
+.markdown table tr:hover th:hover a:hover {
+  @apply text-blue-700;
+}
+
+.markdown table tr:hover td:hover a:active {
+  @apply text-blue-800;
+}
