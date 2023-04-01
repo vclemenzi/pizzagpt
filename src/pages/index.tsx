@@ -98,6 +98,13 @@ const Home: NextPage = () => {
             Ask
           </button>
         </div>
+
+        {/* Footer */}
+        <div className="flex justify-center items-center h-20 w-full bg-gray-100">
+          <p className="text-gray-500">
+            Made with ❤️ by{" "} Valerio Clemenzi | PizzaGPT is not affiliated with OpenAI
+          </p>
+        </div>
       </main>
     </>
   );
