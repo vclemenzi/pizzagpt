@@ -1,9 +1,12 @@
 import { type NextPage } from "next";
 import Head from "next/head";
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 const Home: NextPage = () => {
   const [key, setKey] = useState("");
+  const [response, setResponse] = useState("");
+  const [question, setQuestion] = useState("");
 
   useEffect(() => {
     const key = localStorage.getItem("key");
@@ -14,6 +17,37 @@ const Home: NextPage = () => {
       setKey(key);
     }
   }, []);
+
+  const ask = (question: string) => {
+    axios({
+      method: "POST",
+      url: "https://api.openai.com/v1/chat/completions",
+      headers: {
+        Authorization: `Bearer ${key}`,
+        "Content-Type": "application/json",
+      },
+      data: {
+        model: "gpt-3.5-turbo",
+        messages: [
+          {
+            role: "user",
+            content: question,
+          },
+        ],
+      },
+    })
+      .then((res) => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        setResponse(res.data.choices[0].message.content as string);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleAsk = () => {
+    ask(question);
+  };
 
   return (
     <>
@@ -26,7 +60,28 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        
+        {/* Chat Thread */}
+        <div className="h-[93vh] overflow-y-scroll">
+          <p className="p-10 text-black">{response}</p>
+        </div>
+
+        {/* Chat Input */}
+        <div className="flex h-20 w-full items-center justify-center p-10">
+          <input
+            type="text"
+            className="h-10 w-full rounded-lg border border-gray-300 px-4"
+            placeholder="Ask ChatGPT something..."
+            value={question}
+            onChange={(e) => setQuestion(e.target.value)}
+          />
+
+          <button
+            className="ml-4 h-10 w-20 rounded-md bg-blue-500 text-white"
+            onClick={handleAsk}
+          >
+            Ask
+          </button>
+        </div>
       </main>
     </>
   );
