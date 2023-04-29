@@ -35,3 +35,5 @@ OpenAI is working to restore the service in Italy, respeting the law for the ita
 
 OpenAI words:
 "We are committed to protecting people's privacy and we believe we offer ChatGPT in compliance with GDPR and other privacy laws. We will engage with the Garante with the goal of restoring your access as soon as possible."
+
+Edit: Now you can use ChatGPT!
